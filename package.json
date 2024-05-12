@@ -1,0 +1,30 @@
+{
+  "name": "find-a-friend-api",
+  "version": "1.0.0",
+  "description": "Search for your lost friend through our api",
+  "type": "module",
+  "main": "src/app.js",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "start": "node build/server.cjs",
+    "build": "tsup src --out-dir build"
+  },
+  "author": "PedroDressler",
+  "license": "MIT",
+  "devDependencies": {
+    "@rocketseat/eslint-config": "2.2.2",
+    "@types/node": "20.12.11",
+    "eslint": "8.57.0",
+    "prisma": "5.13.0",
+    "tsup": "8.0.2",
+    "tsx": "4.10.1",
+    "typescript": "5.4.5"
+  },
+  "dependencies": {
+    "@fastify/jwt": "8.0.1",
+    "@prisma/client": "5.13.0",
+    "dotenv": "16.4.5",
+    "fastify": "4.27.0",
+    "zod": "3.23.8"
+  }
+}
