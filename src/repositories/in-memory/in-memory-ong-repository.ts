@@ -7,7 +7,7 @@ export class InMemoryOngRepository implements OngsRepositories {
 
   async create(data: Prisma.OngCreateInput) {
     const ong: Ong = {
-      id: randomUUID() ?? data.id,
+      id: data.id ?? randomUUID(),
       name: data.name,
       password_hash: data.password_hash,
       email: data.email,
@@ -25,6 +25,16 @@ export class InMemoryOngRepository implements OngsRepositories {
 
   async findByEmail(email: string) {
     const ong = this.items.find((item) => item.email === email)
+
+    if (!ong) {
+      return null
+    }
+
+    return ong
+  }
+
+  async findById(id: string) {
+    const ong = this.items.find((item) => item.id === id)
 
     if (!ong) {
       return null

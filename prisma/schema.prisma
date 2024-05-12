@@ -34,11 +34,17 @@ enum PetType {
   BIRD
 }
 
+enum PetGender {
+  FEMALE
+  MALE
+}
+
 model Pet {
   id         String    @id @default(uuid())
   ongId      String
   name       String
   type       PetType
+  gender     PetGender
   age        Int
   adopted_at DateTime?
 
