@@ -1,6 +1,6 @@
 import { it, describe, expect, beforeEach } from 'vitest'
 import { PetsRepositories } from '@/repositories/pets-repositories'
-import { InMemoryPetsRepository } from '@/repositories/in-memory/in-memory-pets-repositories'
+import { InMemoryPetRepository } from '@/repositories/in-memory/in-memory-pets-repositories'
 import { CreatePetUseCase } from './create-pet'
 import { OngsRepositories } from '@/repositories/ongs-repositories'
 import { InMemoryOngRepository } from '@/repositories/in-memory/in-memory-ong-repository'
@@ -13,7 +13,7 @@ describe('Create Pet Use Case', () => {
   let sut: CreatePetUseCase
 
   beforeEach(async () => {
-    petRepository = new InMemoryPetsRepository()
+    petRepository = new InMemoryPetRepository()
     ongRepository = new InMemoryOngRepository()
     sut = new CreatePetUseCase(petRepository, ongRepository)
   })
