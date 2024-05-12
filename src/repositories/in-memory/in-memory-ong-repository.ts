@@ -9,6 +9,7 @@ export class InMemoryOngRepository implements OngsRepositories {
     const ong: Ong = {
       id: randomUUID() ?? data.id,
       name: data.name,
+      password_hash: data.password_hash,
       email: data.email,
       description: data.description ?? null,
       phone: data.phone ?? null,
@@ -18,6 +19,16 @@ export class InMemoryOngRepository implements OngsRepositories {
     }
 
     this.items.push(ong)
+
+    return ong
+  }
+
+  async findByEmail(email: string) {
+    const ong = this.items.find((item) => item.email === email)
+
+    if (!ong) {
+      return null
+    }
 
     return ong
   }
