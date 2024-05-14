@@ -1,5 +1,5 @@
 import { Prisma, Pet } from '@prisma/client'
-import { PetsRepositories } from '../pets-repositories'
+import { PetDetails, PetsRepositories } from '../pets-repositories'
 import { randomUUID } from 'node:crypto'
 
 export class InMemoryPetRepository implements PetsRepositories {
@@ -25,6 +25,20 @@ export class InMemoryPetRepository implements PetsRepositories {
     const pets = this.items
       .filter((item) => item.adopted_at !== null)
       .slice((page - 1) * 20, page * 20)
+
+    return pets
+  }
+
+  async findManyByDetails(page: number, { age, gender, type }: PetDetails) {
+    const pets = this.items
+      .filter((item) => (item.age ? item.age === age : null))
+      .filter((item) => (item.gender ? item.gender === gender : null))
+      .filter((item) => (item.type ? item.type === type : null))
+      .slice((page - 1) * 20, page * 20)
+
+    // .filter((item) => {
+    //   return item.age === age || item.gender === gender || item.type === type
+    // })
 
     return pets
   }

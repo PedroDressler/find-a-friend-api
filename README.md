@@ -1,7 +1,7 @@
 ## Requisitos funcionais
 
 - [x] Deve ser possível cadastrar um pet (POST /pets)
-- [ ] Deve ser possível listar todos os pets disponíveis para adoção em uma cidade (GET /pets)
+- [x] Deve ser possível listar todos os pets disponíveis para adoção em uma cidade (GET /pets/available)
 - [ ] Deve ser possível filtrar pets por suas características (GET /pets/details)
 - [ ] Deve ser possível visualizar detalhes de um pet para adoção (GET /pets/:petId/details)
 - [x] Deve ser possível se cadastrar como uma ORG (POST /users)
